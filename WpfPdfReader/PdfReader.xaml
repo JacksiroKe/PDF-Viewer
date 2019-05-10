@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfPdfReader.PdfReader"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mpp="clr-namespace:MoonPdfLib;assembly=MoonPdfLib"
+        xmlns:mpd="clr-namespace:WpfPdfReader"
+        xmlns:local="clr-namespace:WpfPdfReader"
+        Title="WPF PDF Reader by Jack Siro" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <DockPanel LastChildFill="True" UseLayoutRounding="True">
+        <Menu x:Name="mainMenu" IsMainMenu="True" DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open" Click="OpenFileCommand" />
+                <Separator/>
+                <MenuItem Header="_Exit" Click="ExitCommand"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Single Page" Click="SinglePageCommand" x:Name="viewSingle" IsCheckable="True" />
+                <MenuItem Header="_Facing" Click="FacingCommand" x:Name="viewFacing" IsCheckable="True" />
+                <MenuItem Header="_Book View" Click="BookViewCommand" x:Name="viewBook" IsCheckable="True" />
+                <Separator/>
+                <MenuItem Header="_Toggle Page Display" Click="TogglePageDisplayCommand" x:Name="itmContinuously" />
+                <MenuItem Header="_Rotate Left" Click="RotateLeftCommand" />
+                <MenuItem Header="_Rotate Right" Click="RotateRightCommand" />
+                <MenuItem Header="_Full Screen" Click="FullscreenCommand" IsCheckable="True" x:Name="itmFullscreen" />
+            </MenuItem>
+            <MenuItem Header="_Zoom">
+                <MenuItem Header="_Zoom In" Click="ZoomInCommand" />
+                <MenuItem Header="_Zoom Out" Click="ZoomOutCommand" />
+                <MenuItem Header="_Fit Width" Click="FitWidthCommand" x:Name="itmFitWidth" IsCheckable="True" />
+                <MenuItem Header="_Fit Height" Click="FitHeightCommand" x:Name="itmFitHeight" IsCheckable="True" />
+                <MenuItem Header="_Custom Zoom" Click="CustomZoomCommand" x:Name="itmCustomZoom" IsCheckable="True" />
+            </MenuItem>
+            <MenuItem Header="_Goto">
+                <MenuItem Header="_Next Page" Click="NextPageCommand" />
+                <MenuItem Header="_Previous Page" Click="PreviousPageCommand" />
+                <MenuItem Header="_First Page" Click="FirstPageCommand" />
+                <MenuItem Header="_Last Page" Click="LastPageCommand" />
+                <Separator/>
+                <MenuItem Header="_Go to Page" Click="GotoPageCommand" />
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About PDF Reader" />
+            </MenuItem>
+        </Menu>
+        <mpp:MoonPdfPanel Background="LightGray" ViewType="SinglePage" PageRowDisplay="ContinuousPageRows" PageMargin="0,2,4,2" AllowDrop="True" x:Name="moonPdfPanel" x:FieldModifier="private"/>       
+    </DockPanel>
+</Window>

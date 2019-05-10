@@ -1,0 +1,9 @@
+﻿{
+	generators: [
+		{
+			hstart: "/*!",
+			hend: "!*/",
+			text:  "/*! WPF APP For Reading PDF Files by Jack Siro!*/"
+		}
+	]
+}
